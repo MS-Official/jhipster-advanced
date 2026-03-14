@@ -1,0 +1,10 @@
+[versions]
+platformStarter = "0.2.0"
+
+[libraries]
+starter-security = { module = "com.yourorg.platform:starter-security", version.ref = "platformStarter" }
+starter-otp = { module = "com.yourorg.platform:starter-otp", version.ref = "platformStarter" }
+starter-notification = { module = "com.yourorg.platform:starter-notification", version.ref = "platformStarter" }
+starter-observability = { module = "com.yourorg.platform:starter-observability", version.ref = "platformStarter" }
+starter-multitenancy = { module = "com.yourorg.platform:starter-multitenancy", version.ref = "platformStarter" }
+starter-audit = { module = "com.yourorg.platform:starter-audit", version.ref = "platformStarter" }

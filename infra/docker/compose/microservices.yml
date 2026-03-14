@@ -1,0 +1,9 @@
+services:
+  gateway-app:
+    image: your-org/platform-gateway:dev
+  identity-service:
+    image: your-org/identity-service:dev
+  notification-service:
+    image: your-org/notification-service:dev
+  admin-service:
+    image: your-org/admin-service:dev

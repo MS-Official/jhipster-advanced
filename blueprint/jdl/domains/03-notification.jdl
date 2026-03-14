@@ -1,0 +1,12 @@
+entity NotificationTemplate {
+  code String required unique
+  channel OtpChannel required
+  subject String maxlength(200)
+  body TextBlob required
+  active Boolean required
+}
+
+service NotificationTemplate with serviceClass
+dto NotificationTemplate with mapstruct
+paginate NotificationTemplate with pagination
+filter NotificationTemplate

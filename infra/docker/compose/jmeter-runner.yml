@@ -1,0 +1,6 @@
+services:
+  jmeter-runner:
+    image: justb4/jmeter:latest
+    working_dir: /tests
+    volumes:
+      - ../../../automation/jmeter:/tests

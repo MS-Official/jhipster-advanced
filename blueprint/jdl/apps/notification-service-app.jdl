@@ -1,0 +1,15 @@
+application {
+  config {
+    baseName notificationService
+    applicationType microservice
+    packageName com.yourorg.platform.notification
+    authenticationType oauth2
+    prodDatabaseType postgresql
+    devDatabaseType postgresql
+    buildTool maven
+    serviceDiscoveryType consul
+    nativeLanguage en
+    languages [en]
+  }
+  entities NotificationTemplate
+}

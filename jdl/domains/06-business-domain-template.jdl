@@ -1,0 +1,10 @@
+entity SampleBusinessObject {
+  code String required unique maxlength(50)
+  name String required maxlength(100)
+  status Status required
+}
+
+dto SampleBusinessObject with mapstruct
+service SampleBusinessObject with serviceClass
+paginate SampleBusinessObject with pagination
+filter SampleBusinessObject

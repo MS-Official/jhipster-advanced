@@ -1,0 +1,15 @@
+entity AuditEventEx {
+  eventType String required maxlength(100)
+  entityName String maxlength(100)
+  entityId Long
+  actor String maxlength(100)
+  tenantCode String maxlength(30)
+  traceId String maxlength(100)
+  createdAt Instant required
+  details TextBlob
+}
+
+readOnly AuditEventEx
+service AuditEventEx with serviceClass
+paginate AuditEventEx with pagination
+filter AuditEventEx

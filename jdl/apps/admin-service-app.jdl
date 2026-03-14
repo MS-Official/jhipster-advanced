@@ -1,0 +1,14 @@
+application {
+  config {
+    baseName adminService
+    applicationType microservice
+    packageName com.yourorg.platform.admin
+    authenticationType oauth2
+    prodDatabaseType postgresql
+    buildTool maven
+    serviceDiscoveryType consul
+    nativeLanguage en
+    languages [en]
+  }
+  entities AuditEventEx, Country, Language, SampleBusinessObject
+}

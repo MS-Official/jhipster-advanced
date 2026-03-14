@@ -1,0 +1,40 @@
+entity OtpPolicy {
+  purpose OtpPurpose required
+  ttlSeconds Integer required min(30)
+  maxAttempts Integer required min(1)
+  maxResends Integer required min(0)
+  cooldownSeconds Integer required min(0)
+  enabled Boolean required
+}
+
+entity OtpRequest {
+  referenceId String required unique
+  channel OtpChannel required
+  purpose OtpPurpose required
+  targetValue String required
+  codeHash String required
+  expiresAt Instant required
+  sentAt Instant
+  verifiedAt Instant
+  attempts Integer required min(0)
+  resendCount Integer required min(0)
+  state OtpState required
+}
+
+entity OtpAttempt {
+  attemptedAt Instant required
+  result String required maxlength(20)
+  sourceIp String maxlength(64)
+  deviceInfo String maxlength(255)
+}
+
+relationship ManyToOne {
+  OtpRequest{userProfile(login)} to UserProfile
+  OtpRequest{policy(id) required} to OtpPolicy
+  OtpAttempt{otpRequest(referenceId) required} to OtpRequest
+}
+
+dto OtpPolicy, OtpRequest, OtpAttempt with mapstruct
+service OtpPolicy, OtpRequest, OtpAttempt with serviceClass
+paginate OtpPolicy, OtpRequest, OtpAttempt with pagination
+filter OtpPolicy, OtpRequest, OtpAttempt

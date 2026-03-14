@@ -1,0 +1,7 @@
+pipeline {
+  agent any
+  stages {
+    stage('Build Services') { steps { sh './mvnw -ntp verify' } }
+    stage('Contract and Perf') { steps { echo 'Run service contract tests and JMeter suites here' } }
+  }
+}

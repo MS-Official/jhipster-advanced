@@ -1,0 +1,4 @@
+services:
+  monolith-app:
+    image: your-org/platform-monolith:dev
+    depends_on: [postgres, keycloak, consul]

@@ -1,0 +1,48 @@
+{
+  "name": "@your-org/generator-jhipster-platform-starter",
+  "version": "0.1.0",
+  "description": "Enterprise JHipster starter pack with blueprint conventions, JDL templates, OTP, automation, and infra templates.",
+  "keywords": [
+    "yeoman-generator",
+    "jhipster-blueprint",
+    "jhipster",
+    "generator",
+    "spring-boot",
+    "angular",
+    "kubernetes",
+    "jenkins",
+    "n8n",
+    "jmeter"
+  ],
+  "license": "Apache-2.0",
+  "type": "module",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "README.md",
+    "docs/",
+    "jdl/",
+    "automation/",
+    "infra/",
+    "schemas/",
+    "platform-bom/",
+    "blueprint/",
+    "shared-libraries/",
+    "package.json"
+  ],
+  "scripts": {
+    "lint": "echo 'Add markdown/yaml/json lint here'",
+    "pack:check": "npm pack --dry-run",
+    "validate:jdl": "bash ./jdl/scripts/validate-jdl.sh",
+    "spec": "echo 'Starter pack is documentation/templates only'"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/your-org/generator-jhipster-platform-starter.git"
+  },
+  "homepage": "https://github.com/your-org/generator-jhipster-platform-starter#readme"
+}

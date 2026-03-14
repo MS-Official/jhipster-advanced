@@ -1,0 +1,21 @@
+entity NotificationTemplate {
+  code String required unique
+  channel OtpChannel required
+  subject String maxlength(200)
+  body TextBlob required
+  active Boolean required
+}
+
+entity NotificationDelivery {
+  requestRef String required
+  channel OtpChannel required
+  targetValue String required
+  providerKey String maxlength(100)
+  deliveryStatus String required maxlength(50)
+  deliveredAt Instant
+}
+
+dto NotificationTemplate, NotificationDelivery with mapstruct
+service NotificationTemplate, NotificationDelivery with serviceClass
+paginate NotificationTemplate, NotificationDelivery with pagination
+filter NotificationTemplate, NotificationDelivery

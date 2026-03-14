@@ -1,0 +1,19 @@
+application {
+  config {
+    baseName starterMonolith
+    applicationType monolith
+    packageName com.yourorg.platform.monolith
+    authenticationType oauth2
+    prodDatabaseType postgresql
+    devDatabaseType postgresql
+    buildTool maven
+    clientFramework angular
+    serviceDiscoveryType consul
+    enableSwaggerCodegen true
+    withAdminUi true
+    nativeLanguage en
+    languages [en]
+    testFrameworks [cypress]
+  }
+  entities Tenant, UserProfile, OtpPolicy, OtpRequest, OtpAttempt, NotificationTemplate, AuditEventEx
+}

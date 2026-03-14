@@ -1,0 +1,15 @@
+entity Country {
+  code String required unique minlength(2) maxlength(3)
+  name String required maxlength(100)
+  active Boolean required
+}
+
+entity Currency {
+  code String required unique minlength(3) maxlength(3)
+  name String required maxlength(100)
+  active Boolean required
+}
+
+readOnly Country, Currency
+paginate Country, Currency with pagination
+service Country, Currency with serviceClass

@@ -1,0 +1,14 @@
+pipeline {
+  agent any
+  stages {
+    stage('Validate JDL') { steps { sh './jdl/scripts/validate-jdl.sh' } }
+    stage('Generate Services') { steps { sh 'echo generate gateway + services' } }
+    stage('Build') { parallel {
+      stage('gateway') { steps { sh 'echo build gateway' } }
+      stage('identity') { steps { sh 'echo build identity' } }
+      stage('notification') { steps { sh 'echo build notification' } }
+      stage('admin') { steps { sh 'echo build admin' } }
+    } }
+    stage('Tests') { steps { sh 'echo integration/e2e/perf' } }
+  }
+}

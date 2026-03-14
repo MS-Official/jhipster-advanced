@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:17
+    environment:
+      POSTGRES_PASSWORD: platform
+  keycloak:
+    image: quay.io/keycloak/keycloak:latest
+    command: start-dev
+  consul:
+    image: hashicorp/consul:latest
+    command: agent -dev -client=0.0.0.0
+  mailpit:
+    image: axllent/mailpit:latest
+  sms-mock:
+    image: ghcr.io/mockserver/mockserver:latest

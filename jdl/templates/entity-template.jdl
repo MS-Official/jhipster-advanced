@@ -1,0 +1,10 @@
+// Copy and adapt this template per bounded context.
+entity ExampleEntity {
+  code String required unique maxlength(50)
+  name String required maxlength(100)
+  status Status required
+}
+dto ExampleEntity with mapstruct
+service ExampleEntity with serviceClass
+paginate ExampleEntity with pagination
+filter ExampleEntity

@@ -1,0 +1,4 @@
+resources:
+  - ../../base/namespace.yaml
+  - ../../base/gateway-deployment.yaml
+namePrefix: prod-

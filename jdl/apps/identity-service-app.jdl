@@ -1,0 +1,14 @@
+application {
+  config {
+    baseName identityService
+    applicationType microservice
+    packageName com.yourorg.platform.identity
+    authenticationType oauth2
+    prodDatabaseType postgresql
+    buildTool maven
+    serviceDiscoveryType consul
+    nativeLanguage en
+    languages [en]
+  }
+  entities Tenant, UserProfile, OtpPolicy, OtpRequest, OtpAttempt
+}

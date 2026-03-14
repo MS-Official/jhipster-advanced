@@ -1,0 +1,12 @@
+pipeline {
+  agent any
+  stages {
+    stage('Validate JDL') { steps { sh './jdl/scripts/validate-jdl.sh' } }
+    stage('Import JSON Only') { steps { sh './jdl/scripts/import-json-only.sh || true' } }
+    stage('Build') { steps { sh 'echo build monolith' } }
+    stage('Unit + Integration') { steps { sh 'echo test monolith' } }
+    stage('Cypress') { steps { sh 'echo cypress' } }
+    stage('JMeter Smoke') { steps { sh 'echo jmeter smoke' } }
+    stage('Package Image') { steps { sh 'echo docker build' } }
+  }
+}

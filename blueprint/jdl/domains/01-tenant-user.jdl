@@ -1,0 +1,23 @@
+entity Tenant {
+  code String required unique minlength(2) maxlength(30)
+  name String required maxlength(100)
+  active Boolean required
+}
+
+entity UserProfile {
+  login String required minlength(3) maxlength(50)
+  firstName String required maxlength(50)
+  lastName String maxlength(50)
+  email String required
+  phoneNumber String
+  status Status required
+}
+
+relationship ManyToOne {
+  UserProfile{tenant(code) required} to Tenant
+}
+
+dto * with mapstruct
+service * with serviceClass
+paginate * with pagination
+filter *

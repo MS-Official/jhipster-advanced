@@ -1,0 +1,73 @@
+{
+  "name": "@your-org/generator-jhipster-platform-starter",
+  "version": "0.2.0",
+  "description": "Enterprise JHipster starter blueprint with OTP, automation, infra templates, and developer-owned testing.",
+  "type": "module",
+  "license": "Apache-2.0",
+  "homepage": "https://www.npmjs.com/package/@your-org/generator-jhipster-platform-starter",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/your-org/generator-jhipster-platform-starter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-org/generator-jhipster-platform-starter/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "cli/",
+    "generators/",
+    "templates/",
+    "automation/",
+    "infra/",
+    "jdl/",
+    "shared-libraries/",
+    "schemas/",
+    "docs/",
+    ".yo-rc.json",
+    "README.md",
+    "BUILD_FROM_SCRATCH.md"
+  ],
+  "bin": {
+    "jhipster-platform-starter": "./cli/cli.mjs"
+  },
+  "scripts": {
+    "clean": "rm -rf dist .nyc_output coverage",
+    "lint": "eslint .",
+    "test": "node --test",
+    "pack:check": "npm pack --dry-run",
+    "publish:check": "npm pack --dry-run && npm publish --dry-run --access public",
+    "validate:jdl": "bash ./jdl/scripts/validate-jdl.sh",
+    "generate:sample": "node ./scripts/print-usage.mjs",
+    "doctor": "node ./scripts/doctor.mjs"
+  },
+  "keywords": [
+    "yeoman-generator",
+    "jhipster-blueprint",
+    "jhipster",
+    "generator-jhipster",
+    "spring-boot",
+    "angular",
+    "keycloak",
+    "consul",
+    "kubernetes",
+    "docker",
+    "otp",
+    "jenkins",
+    "n8n",
+    "jmeter"
+  ],
+  "engines": {
+    "node": ">=22.14.0",
+    "npm": ">=11.5.1"
+  },
+  "dependencies": {
+    "chalk": "^5.4.1",
+    "execa": "^9.6.0",
+    "generator-jhipster": "^9.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^9.25.0"
+  }
+}

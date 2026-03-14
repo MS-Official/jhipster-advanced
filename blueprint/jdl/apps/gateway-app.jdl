@@ -1,0 +1,16 @@
+application {
+  config {
+    baseName starterGateway
+    applicationType gateway
+    packageName com.yourorg.platform.gateway
+    authenticationType oauth2
+    prodDatabaseType postgresql
+    devDatabaseType postgresql
+    buildTool maven
+    clientFramework angular
+    serviceDiscoveryType consul
+    withAdminUi true
+    nativeLanguage en
+    languages [en]
+  }
+}

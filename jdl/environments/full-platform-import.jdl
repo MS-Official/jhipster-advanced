@@ -1,0 +1,2 @@
+import './monolith-import.jdl'
+import './microservice-import.jdl'

@@ -1,0 +1,12 @@
+pipeline {
+  agent any
+  stages {
+    stage('Checkout') { steps { checkout scm } }
+    stage('Build') { steps { sh './mvnw -ntp verify' } }
+    stage('Docker Compose Smoke') { steps { sh 'docker compose -f infra/docker/compose/local-full.yml up -d' } }
+    stage('API Perf') { steps { sh 'jmeter -n -t automation/jmeter/api/otp-request.jmx -l reports/otp-request.jtl' } }
+  }
+  post {
+    always { archiveArtifacts artifacts: 'reports/**/*', allowEmptyArchive: true }
+  }
+}

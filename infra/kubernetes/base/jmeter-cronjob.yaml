@@ -1,0 +1,15 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: jmeter-nightly
+spec:
+  schedule: "0 2 * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: Never
+          containers:
+            - name: jmeter
+              image: justb4/jmeter:latest
+              args: ["-n", "-t", "/plans/monolith-smoke.jmx"]

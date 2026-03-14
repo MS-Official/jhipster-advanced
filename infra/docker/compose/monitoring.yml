@@ -1,0 +1,9 @@
+services:
+  prometheus:
+    image: prom/prometheus:latest
+  grafana:
+    image: grafana/grafana:latest
+  loki:
+    image: grafana/loki:latest
+  otel-collector:
+    image: otel/opentelemetry-collector:latest

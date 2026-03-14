@@ -1,0 +1,17 @@
+entity Country {
+  code String required unique minlength(2) maxlength(3)
+  name String required maxlength(100)
+  active Boolean required
+}
+
+entity Language {
+  code String required unique minlength(2) maxlength(10)
+  name String required maxlength(100)
+  active Boolean required
+}
+
+dto Country, Language with mapstruct
+service Country, Language with serviceClass
+paginate Country, Language with pagination
+filter Country, Language
+readOnly Country, Language
