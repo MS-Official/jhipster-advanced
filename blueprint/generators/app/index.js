@@ -9,6 +9,17 @@ export default class extends AppGenerator {
     this.platformStarter = normalizePlatformOptions(this.config.get('platformStarter'));
   }
 
+  async beforeQueue() {
+    await super.beforeQueue();
+
+    // When the blueprint is the delegated app generator, JHipster's base app bootstrap
+    // may be skipped. Pull it in explicitly so the shared application context exists
+    // before base-application priorities such as loadingEntities run.
+    if (this.fromBlueprint && !this.jhipsterConfig.baseName) {
+      await this.dependsOnBootstrapApplicationBase();
+    }
+  }
+
   get prompting() {
     return {
       ...(super.prompting ?? {}),
