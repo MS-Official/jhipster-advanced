@@ -1,5 +1,5 @@
 {
-  "name": "@your-org/generator-jhipster-platform-starter",
+  "name": "generator-jhipster-my-jhipster",
   "version": "0.1.0",
   "description": "Enterprise JHipster starter pack with blueprint conventions, JDL templates, OTP, automation, and infra templates.",
   "keywords": [
