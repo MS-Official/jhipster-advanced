@@ -7,9 +7,9 @@ export default class extends ServerGenerator {
     assertBlueprintContext(this);
   }
 
-  get [ServerGenerator.WRITING]() {
+  get writing() {
     return {
-      ...super._writing(),
+      ...(super.writing ?? {}),
       copyServerPlatformFiles() {
         this.fs.copy(
           this.templatePath('server/src'),
@@ -23,5 +23,9 @@ export default class extends ServerGenerator {
         );
       }
     };
+  }
+
+  get [ServerGenerator.WRITING]() {
+    return this.writing;
   }
 }

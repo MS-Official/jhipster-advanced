@@ -1,4 +1,4 @@
-# generator-jhipster-platform-starter
+# generator-jhipster-my-jhipster
 
 A publishable **JHipster blueprint package** that combines:
 
@@ -29,7 +29,7 @@ It is still a **scaffold**. The generator hooks are intentionally conservative a
 Install and use it through its blueprint name:
 
 ```bash
-jhipster --blueprints platform-starter
+jhipster --blueprints my-jhipster
 ```
 
 ## Local development quick start
@@ -43,7 +43,7 @@ npm run pack:check
 ## Typical usage
 
 ```bash
-npx -p generator-jhipster -p @your-org/generator-jhipster-platform-starter jhipster --blueprints platform-starter
+npx -p generator-jhipster -p generator-jhipster-my-jhipster jhipster --blueprints my-jhipster
 ```
 
 ## Included sub-generators

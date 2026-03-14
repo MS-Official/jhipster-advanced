@@ -7,9 +7,9 @@ export default class extends DockerGenerator {
     assertBlueprintContext(this);
   }
 
-  get [DockerGenerator.WRITING]() {
+  get writing() {
     return {
-      ...super._writing(),
+      ...(super.writing ?? {}),
       copyComposeProfiles() {
         this.fs.copy(
           this.templatePath('docker/compose'),
@@ -17,5 +17,9 @@ export default class extends DockerGenerator {
         );
       }
     };
+  }
+
+  get [DockerGenerator.WRITING]() {
+    return this.writing;
   }
 }

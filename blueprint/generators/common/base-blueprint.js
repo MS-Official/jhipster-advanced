@@ -1,10 +1,22 @@
 import chalk from 'chalk';
 
-export function assertBlueprintContext(generator, label = 'platform-starter') {
+export function assertBlueprintContext(generator, label = 'my-jhipster') {
   if (generator.options.help) return;
-  if (!generator.options.jhipsterContext) {
-    throw new Error(
-      `This is a JHipster blueprint and should be used only like ${chalk.yellow(`jhipster --blueprints ${label}`)}`
+
+  const blueprintNames = [
+    generator.options.blueprints,
+    generator.options.fromBlueprint,
+    generator.options.blueprint
+  ]
+    .flat()
+    .filter(Boolean)
+    .map(value => String(value));
+
+  if (blueprintNames.length > 0 && !blueprintNames.some(value => value.includes(label))) {
+    generator.log?.(
+      chalk.yellow(
+        `Expected blueprint ${label}, but received: ${blueprintNames.join(', ')}. Continuing because JHipster may vary the composed options.`
+      )
     );
   }
 }

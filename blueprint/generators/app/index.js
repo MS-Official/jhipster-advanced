@@ -9,9 +9,9 @@ export default class extends AppGenerator {
     this.platformStarter = normalizePlatformOptions(this.config.get('platformStarter'));
   }
 
-  get [AppGenerator.PROMPTING]() {
+  get prompting() {
     return {
-      ...super._prompting(),
+      ...(super.prompting ?? {}),
       async platformStarterPrompts() {
         const answers = await this.prompt([
           {
@@ -45,9 +45,13 @@ export default class extends AppGenerator {
     };
   }
 
-  get [AppGenerator.WRITING]() {
+  get [AppGenerator.PROMPTING]() {
+    return this.prompting;
+  }
+
+  get writing() {
     return {
-      ...super._writing(),
+      ...(super.writing ?? {}),
       writePlatformStarterMetadata() {
         this.fs.copyTpl(
           this.templatePath('platform-starter/platform-starter.json.ejs'),
@@ -69,13 +73,21 @@ export default class extends AppGenerator {
     };
   }
 
-  get [AppGenerator.END]() {
+  get [AppGenerator.WRITING]() {
+    return this.writing;
+  }
+
+  get end() {
     return {
-      ...super._end(),
+      ...(super.end ?? {}),
       postMessage() {
         this.log(chalk.green('\nplatform-starter scaffold copied.'));
         this.log(chalk.yellow('Next: wire shared Spring starters, Docker profiles, and CI packs into your generated app.'));
       }
     };
+  }
+
+  get [AppGenerator.END]() {
+    return this.end;
   }
 }

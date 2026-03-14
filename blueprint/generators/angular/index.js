@@ -7,9 +7,9 @@ export default class extends AngularGenerator {
     assertBlueprintContext(this);
   }
 
-  get [AngularGenerator.WRITING]() {
+  get writing() {
     return {
-      ...super._writing(),
+      ...(super.writing ?? {}),
       copyAngularAssets() {
         this.fs.copy(
           this.templatePath('angular/src'),
@@ -17,5 +17,9 @@ export default class extends AngularGenerator {
         );
       }
     };
+  }
+
+  get [AngularGenerator.WRITING]() {
+    return this.writing;
   }
 }

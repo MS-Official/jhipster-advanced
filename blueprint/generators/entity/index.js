@@ -7,9 +7,9 @@ export default class extends EntityGenerator {
     assertBlueprintContext(this);
   }
 
-  get [EntityGenerator.WRITING]() {
+  get writing() {
     return {
-      ...super._writing(),
+      ...(super.writing ?? {}),
       copyEntityConventions() {
         this.fs.copy(
           this.templatePath('entity/platform-starter-entity.md'),
@@ -17,5 +17,9 @@ export default class extends EntityGenerator {
         );
       }
     };
+  }
+
+  get [EntityGenerator.WRITING]() {
+    return this.writing;
   }
 }

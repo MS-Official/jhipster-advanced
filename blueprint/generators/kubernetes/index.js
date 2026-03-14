@@ -7,9 +7,9 @@ export default class extends KubernetesGenerator {
     assertBlueprintContext(this);
   }
 
-  get [KubernetesGenerator.WRITING]() {
+  get writing() {
     return {
-      ...super._writing(),
+      ...(super.writing ?? {}),
       copyKubernetesAssets() {
         this.fs.copy(
           this.templatePath('kubernetes/base'),
@@ -21,5 +21,9 @@ export default class extends KubernetesGenerator {
         );
       }
     };
+  }
+
+  get [KubernetesGenerator.WRITING]() {
+    return this.writing;
   }
 }
